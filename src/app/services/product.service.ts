@@ -26,9 +26,9 @@ export class ProductService {
     let errorMessage = '';
 
     if (err.error instanceof ErrorEvent) {
-      errorMessage = 'Something went wrong ' + err.error.message;
+      errorMessage = 'Something went wrong on ProductService ' + err.error.message;
     } else {
-      errorMessage = 'A systematic error has occurred';
+      errorMessage = 'A systematic error has occurred on ProductService';
     }
     return throwError(errorMessage);
   }
