@@ -6,7 +6,7 @@ import {catchError, tap} from 'rxjs/operators';
 
 
 @Injectable({
-  providedIn : 'root'
+  providedIn: 'root'
 })
 export class ProductService {
 
@@ -15,8 +15,14 @@ export class ProductService {
 
   path = 'http://localhost:3000/products';
 
-  getProductList(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.path).pipe(
+  getProductList(categoryId): Observable<Product[]> {
+    let newPath = this.path;
+
+    if (categoryId) {
+      newPath += '?categoryId=' + categoryId;
+    }
+
+    return this.http.get<Product[]>(newPath).pipe(
       tap(data => console.log(JSON.stringify(data))),  // logging
       catchError(this.handleError)  // try catch
     );

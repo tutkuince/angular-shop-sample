@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from './product';
 import {AlertifyService} from '../services/alertify.service';
 import {ProductService} from '../services/product.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -10,7 +11,7 @@ import {ProductService} from '../services/product.service';
 })
 export class ProductComponent implements OnInit {
 
-  constructor(private alertifyService: AlertifyService, private productService: ProductService) { // alertifyService injection
+  constructor(private alertifyService: AlertifyService, private productService: ProductService, private activatedRoute: ActivatedRoute) { // alertifyService injection
 
   }
 
@@ -19,8 +20,10 @@ export class ProductComponent implements OnInit {
   products: Product[];
 
   ngOnInit() {
-    this.productService.getProductList().subscribe(data => {
-      this.products = data;
+    this.activatedRoute.params.subscribe(params => {
+      this.productService.getProductList(params["categoryId"]).subscribe(data => {
+        this.products = data;
+      });
     });
   }
 
