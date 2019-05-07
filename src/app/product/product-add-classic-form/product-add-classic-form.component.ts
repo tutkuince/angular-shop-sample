@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from '../product';
 import {CategoryService} from '../../services/category.service';
+import {Category} from '../../category/category';
 
 @Component({
   selector: 'app-product-add-classic-form',
@@ -12,8 +13,10 @@ export class ProductAddClassicFormComponent implements OnInit {
   constructor(private categoryService: CategoryService) { }
 
   model: Product = new Product();
+  categories: Category[];
 
   ngOnInit() {
+    this.categoryService.getCategoryList().subscribe(data => this.categories = data);
   }
 
 }
