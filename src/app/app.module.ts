@@ -7,7 +7,7 @@ import { NavComponent } from './nav/nav.component';
 import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
 import { ProductFilterPipe } from './product/product-filter.pipe';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ProductAddClassicFormComponent } from './product/product-add-classic-form/product-add-classic-form.component';
 import { ProductAddReactiveFormComponent } from './product/product-add-reactive-form/product-add-reactive-form.component';
@@ -26,7 +26,8 @@ import { ProductAddReactiveFormComponent } from './product/product-add-reactive-
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
