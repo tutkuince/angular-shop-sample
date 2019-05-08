@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Product} from '../product';
 import {CategoryService} from '../../services/category.service';
 import {Category} from '../../category/category';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-product-add-classic-form',
@@ -10,13 +11,18 @@ import {Category} from '../../category/category';
 })
 export class ProductAddClassicFormComponent implements OnInit {
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService) {
+  }
 
   model: Product = new Product();
   categories: Category[];
 
   ngOnInit() {
     this.categoryService.getCategoryList().subscribe(data => this.categories = data);
+  }
+
+  add(form: NgForm) {
+    alert(form.value.name);
   }
 
 }
