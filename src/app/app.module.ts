@@ -10,6 +10,7 @@ import { ProductFilterPipe } from './product/product-filter.pipe';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ProductAddClassicFormComponent } from './product/product-add-classic-form/product-add-classic-form.component';
+import { ProductAddReactiveFormComponent } from './product/product-add-reactive-form/product-add-reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProductAddClassicFormComponent } from './product/product-add-classic-fo
     CategoryComponent,
     ProductComponent,
     ProductFilterPipe,
-    ProductAddClassicFormComponent
+    ProductAddClassicFormComponent,
+    ProductAddReactiveFormComponent
   ],
   imports: [
     BrowserModule,
