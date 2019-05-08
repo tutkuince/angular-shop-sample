@@ -4,8 +4,11 @@
   <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">E-Commerce App</a>
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-      <a class="nav-link" routerLink="/login">
+      <a *ngIf="isLoggedIn() === false" class="nav-link" routerLink="/login">
         Login
+      </a>
+      <a *ngIf="isLoggedIn()" (click)="logOut()" class="nav-link" routerLink="/logout">
+        Logout
       </a>
     </li>
   </ul>
